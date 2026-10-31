@@ -1,0 +1,11 @@
+{
+  "device": "Amazon Fire TV Stick 2nd generation / AFTT / tank",
+  "firmware": "Fire OS 5.2.9.5 (688806320)",
+  "context": "Original pre-release prototype, one device. PC-triggered Home key to Luncher focused window. Includes ADB input overhead; not a cold-boot benchmark.",
+  "baseline_seconds": [7.192, 6.377, 6.177],
+  "external_am_seconds": [2.448, 2.232, 1.582],
+  "direct_activity_service_seconds": [1.299, 1.367, 1.312],
+  "cleaned_prototype_seconds": [1.439, 1.639, 1.401],
+  "resolution": "Window focus polled at about 80 ms plus ADB round trips; not frame-accurate physical remote latency.",
+  "limitations": ["One device; not a benchmark of final public builds on multiple models", "Accelerator requires reactivation after a full reboot", "Device and load dependent"]
+}

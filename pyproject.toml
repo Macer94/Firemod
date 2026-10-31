@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "firemod"
+version = "0.1.0"
+description = "A reversible, desktop-first toolkit for Amazon Fire TV"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "AGPL-3.0-or-later"
+authors = [{name = "Firemod contributors"}]
+dependencies = ["PySide6-Essentials>=6.8,<6.10"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pyinstaller>=6.16,<7", "ruff>=0.11,<1", "hatchling>=1.27", "editables>=0.5,<1"]
+
+[project.scripts]
+firemod = "firemod.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/firemod"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"resources" = "firemod/resources"
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/scripts", "/android", "/resources", "/docs", "/run.py", "/pyproject.toml", "/requirements-build.txt", "/README.md", "/README.en.md", "/LICENSE", "/THIRD_PARTY_NOTICES.md", "/CONTRIBUTING.md", "/.github"]
+exclude = ["android/build/**", "**/*.idsig"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B"]

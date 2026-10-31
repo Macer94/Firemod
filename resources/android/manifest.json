@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "min_sdk": 22,
+  "home_supported_sdk": [
+    22
+  ],
+  "android_source_sha256": "cc86c30a1aa5224e4ff8834f815dd75fd0dda88aeaf5f9ca1c6eaf5a20aac196",
+  "files": {
+    "firemod-bridge.jar": {
+      "sha256": "3b9f113564f98eb1c301bcee12a9474854ce889b8c4df1390b17fcb8a6ed9b7d"
+    },
+    "firemod-home.apk": {
+      "sha256": "47ae1d4133ee6a450842b430fd548894c9173efbbbd12002aa60d69fa4b1a971"
+    },
+    "luncher-0.4.0.apk": {
+      "sha256": "36f2b8fd2b6d3be1efc6b8d85a2238bcb76dcadfa35b1677888896c27db08436"
+    }
+  },
+  "luncher_source": "https://github.com/CVasilakis/luncher/tree/v0.4.0",
+  "helper_upstream": "https://github.com/whyashthakker/debloat-fire-stick-claude-code/commit/2d006a3984ffabd432de6eaf199d4eea2dd0f8c5"
+}
