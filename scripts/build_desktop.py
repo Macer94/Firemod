@@ -38,8 +38,11 @@ def main():
                   "machine": platform.machine(), "libc": platform.libc_ver(),
                   "cross_build_note": os.environ.get("FIREMOD_BUILD_NOTE", "Native build")}
     (bundle / "BUILD-INFO.json").write_text(json.dumps(build_info, indent=2) + "\n", encoding="utf-8")
-    for filename in ("README.md", "README.en.md", "LICENSE", "THIRD_PARTY_NOTICES.md"):
+    for filename in ("README.md", "README.en.md", "AGENTS.md", "CONTRIBUTING.md",
+                     "LICENSE", "THIRD_PARTY_NOTICES.md"):
         shutil.copy2(ROOT / filename, bundle / filename)
+    shutil.copytree(ROOT / "docs", bundle / "docs", dirs_exist_ok=True,
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     system = "windows" if sys.platform == "win32" else "linux"
     name = f"Firemod-{__version__}-{system}-x86_64"
     if sys.platform == "win32":

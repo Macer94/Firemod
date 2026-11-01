@@ -25,7 +25,7 @@ packages = ["src/firemod"]
 "resources" = "firemod/resources"
 
 [tool.hatch.build.targets.sdist]
-include = ["/src", "/tests", "/scripts", "/android", "/resources", "/docs", "/run.py", "/pyproject.toml", "/requirements-build.txt", "/README.md", "/README.en.md", "/LICENSE", "/THIRD_PARTY_NOTICES.md", "/CONTRIBUTING.md", "/.github"]
+include = ["/src", "/tests", "/scripts", "/android", "/resources", "/docs", "/run.py", "/pyproject.toml", "/requirements-build.txt", "/README.md", "/README.en.md", "/LICENSE", "/THIRD_PARTY_NOTICES.md", "/CONTRIBUTING.md", "/AGENTS.md", "/CHANGELOG.md", "/.github"]
 exclude = ["android/build/**", "**/*.idsig"]
 
 [tool.pytest.ini_options]

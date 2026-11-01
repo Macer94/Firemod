@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Expanded Italian/English README and a step-by-step Italian user manual.
+- Added root `AGENTS.md` and an operational agent guide documenting real CLI/API behavior, device targeting, settings, journals and restore limits.
+- Clarified app-selection semantics, partial outcomes, boot-scoped Home acceleration and ADB-serial-based history.
+- Included full guides in future desktop bundles and source distributions; added a standalone documentation ZIP builder. Existing 0.1.0 binaries/tags remain unchanged.
+
 ## 0.1.0
 
 - First Linux/Windows desktop interface in Italian, with an English user guide.

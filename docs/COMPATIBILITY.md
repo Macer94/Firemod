@@ -1,5 +1,9 @@
 # Compatibility and limits
 
+[README](../README.md) · [User manual](USER_GUIDE.it.md) · [Agent guide](AGENT_GUIDE.md)
+
+Scope: 0.1.0. Device mutation checks require manufacturer Amazon, model prefix `AFT` and Android API >= 22. Operations address Android user 0; the desktop tool has no Android multiuser selector. Native desktop CI success verifies the desktop program, not each firmware below.
+
 | Software | App management / settings | Home companion / accelerator |
 | --- | --- | --- |
 | Fire OS 5 / Android 5.1 / API 22 | Original work verified on AFTT/tank, 5.2.9.5 | Supported; original algorithm tested on that device |
@@ -27,3 +31,13 @@ A settings read-back verifies the saved value, not that every firmware/service h
 App management uses `pm disable-user` and/or `pm hide`, never bulk uninstall. Fire OS 5 generally refuses changes to Amazon system apps; real state is verified afterward. Unknown system packages and core components are kept. The optional-system-app list is explicit in `catalog.py` and should only grow with model-specific evidence and a tested restore path.
 
 Restoration recovers captured values, not an entire disk image or external app-data changes. Newly installed companions may be uninstalled during restore. Original APKs are backed up before upgrades; split APK replacement is refused.
+
+Plans can partially succeed without automatic all-or-nothing rollback. A restore point undoes its registered operations, not every later operation on the TV; restore consecutive points from newest to oldest if undoing several plans. Android 5.1 may restore an original default-enabled state as explicitly enabled, preserving behavior rather than the exact enabled-state integer.
+
+History is keyed by the ADB serial, usually `IP:port` over the network. IP/port changes or switching USB/network can make the same physical TV appear under a different history. Automatic physical-device identity migration is not implemented. Snapshots include the original serial in clear text and must stay private.
+
+## Desktop and validation evidence
+
+Official packages are x86_64 Linux and Windows, with separate `_internal` shared libraries. There are no ARM or macOS release packages. Native 0.1.0 CI used Ubuntu 22.04 and Windows Server 2022 and passed 33 tests plus source and packaged GUI smoke checks. The local development process also exercised Wine, but the public release binaries were produced by the native CI jobs.
+
+Physical-device evidence consists of the original AFTT prototype Home algorithm/measurements and read-only inspection/app enumeration with the public desktop code. Do not read the prototype benchmark as an end-to-end certification of every installation/restoration path of the new public companion namespace, or of other Fire OS models. Preserve that distinction in issue reports and support claims.
